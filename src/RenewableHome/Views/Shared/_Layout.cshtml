@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Stack Conf</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+  @*style="padding-top: 70px;">*@
+<div class="container text-center">
+  <h1 class="display-1">Full Stack Conf</h1>
+  <p class="lead">Coming Soon, a One-day Conference About all things JavaScript!</p>
+
+  <div class="col-lg-6 mx-auto">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter your email for info" aria-label="Enter your email for info">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Sign up</button>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("MyTecBits.com Sample", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>@Html.ActionLink("Home", "Index", "Home")</li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>*@
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<div class="container body-content">
+  @RenderBody()
+  <hr />
+  <footer>
+    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+  </footer>
+</div>
+
+@RenderSection("scripts", required: false)
+</body>
+</html>
