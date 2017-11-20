@@ -11,3 +11,8 @@
   background-size: cover;
 }
 
+#nav1{  
+  background-color:#F00; /*whichever you want*/
+  opacity: 0.5; 
+  filter:(opacity=50);       
+}
