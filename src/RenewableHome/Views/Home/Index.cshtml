@@ -11,16 +11,16 @@
 		<p class="lead">How switching to renewable energy sources can effect your long-term energy cost</p>
 		<div class="btn-group mt-4" role="group" aria-label="Callout buttons">
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">Register Now</button>
-			<a class="btn btn-light btn-lg" href="#speakers">See Speakers</a>
+			<a class="btn btn-light btn-lg" href="#specifications">Start Here</a>
 		</div>
 	</div>
 </div><!--/jumbotron-->
 
 <div class="container pt-4">
 	<!--Specifications-->
-	<div id="about" class="row">
+	<div id="specifications" class="row my-5">
 		<div class="col-lg order-lg-2">
-			<h3 class="mb-4">About Full Stack Conf</h3>
+			<h3 class="mb-4">Your Home Information</h3>
 			<img class="mb-4 img-fluid rounded d-none d-sm-block" src="~/img/pdx.jpg" alt="Portland">
 			<p>The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!</p>
 			<p>Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.</p>
@@ -199,3 +199,8 @@
 		</div>
 	</div>
 </div>
+<script>
+	var shiftWindow = function () { scrollBy(0, -50) };
+	if (location.hash) shiftWindow();
+	window.addEventListener("hashchange", shiftWindow);
+</script>
