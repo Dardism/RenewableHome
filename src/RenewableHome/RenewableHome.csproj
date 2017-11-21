@@ -92,9 +92,13 @@
     <Content Include="css\custom.css" />
     <Content Include="Global.asax" />
     <Content Include="img\ecma.png" />
+    <Content Include="img\Forest2.jpg" />
+    <Content Include="img\Forest3.jpg" />
     <Content Include="img\jay.png" />
     <Content Include="img\json.png" />
     <Content Include="img\jumbo-bg.jpg" />
+    <Content Include="img\mountain1.jpeg" />
+    <Content Include="img\mountain2.jpg" />
     <Content Include="img\nodestradamus.png" />
     <Content Include="img\pdx.jpg" />
     <Content Include="img\robbie.png" />

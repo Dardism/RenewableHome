@@ -1,19 +1,35 @@
 ﻿body {
-  background-image: url('../img/Forest3.jpg')
+  background-image: url('../img/mountain2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover
 }
 
 .navbar .navbar-brand {
-  color: rgba(255, 255, 255, .85);
   font-size: 1rem;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255,255,255);
+}
+
+.navbar-dark .navbar-toggler {
+  color: rgb(255,255,255);  
+}
+
 .jumbotron {
-  background-image: url('../img/jumbo-bg.jpg');
-  background-size: cover;
+   background: rgba(200, 54, 54, 0); 
+}
+
+p {
+  color: rgb(255,255,255);
+}
+
+h3 {
+  color: rgb(255,255,255);
 }
 
 #nav1{  
-  background-color:#F00; /*whichever you want*/
+  background-color:#F00; /*whichever you want   color: rgba(255, 255, 255, .85);*/
   opacity: 0.5; 
-  filter:(opacity=50);       
+  filter:(opacity=50);
 }
