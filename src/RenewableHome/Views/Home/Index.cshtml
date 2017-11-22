@@ -1,4 +1,6 @@
-﻿
+﻿@model RenewableHome.Models.HomeEntry
+@using RenewableHome.Models
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,19 +12,34 @@
 		<h1 class="display-2">Renewable Home</h1>
 		<p class="lead">How switching to renewable energy sources can effect your long-term energy cost</p>
 		<div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">Register Now</button>
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">More Info</button>
 			<a class="btn btn-light btn-lg" href="#specifications">Start Here</a>
 		</div>
 	</div>
 </div><!--/jumbotron-->
 
 <div class="container pt-4">
+@*@using (Html.BeginForm()) {
+	@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				@Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
+				@Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Duration, new { @class = "control-label" })
+				@Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+			</div>
+		</div>
+	</div>
+}*@
 	<!--Specifications-->
 	<div id="specifications" class="row my-5">
 		<div class="col-lg order-lg-2">
 			<h3 class="mb-4">Your Home Information</h3>
 			<img class="mb-4 img-fluid rounded d-none d-sm-block" src="~/img/pdx.jpg" alt="Portland">
-			<p>The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!</p>
+			<p>Select your State where your home is located (default energy comsumption can be used)</p>
 			<p>Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.</p>
 		</div>
 		<div class="col-lg order-lg-1">
@@ -43,35 +60,15 @@
 			</div>
 		</div>
 	</div><!--/Specifications-->
-
 	<!--callout button-->
 	<button type="button" class="btn btn-outline-info btn-lg d-block mx-auto my-5"
 					data-toggle="modal" data-target="#register">
 		Don't Miss Out, Register Now
 	</button>
 
-	<!-- signup form -->
-	<hr>
-	<div class="row py-4 text-muted">
-		<div class="col-md col-xl-5">
-			<p><strong>About Treehouse</strong></p>
-			<p>Treehouse brings affordable technology education to people everywhere to help them achieve their dreams and change the world.</p>
-		</div>
-		<div class="col-md col-xl-5 ml-auto">
-			<p><strong>Stay up-to-date on Full Stack Conf</strong></p>
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Email">
-				<span class="input-group-btn">
-					<button class="btn btn-primary" type="button">Sign up</button>
-				</span>
-			</div>
-		</div>
-	</div>
-	<hr><!-- /signup form -->
 </div><!--/.container-->
-
 <!--=====================================
-	 FORM MODAL
+		FORM MODAL
 	=====================================-->
 <!-- Modal -->
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
