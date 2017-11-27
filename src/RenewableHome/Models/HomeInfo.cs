@@ -8,30 +8,22 @@ namespace RenewableHome.Models {
   /// <summary>
   /// Represents an activity that has been logged in the Fitness Frog app.
   /// </summary>
-  public class HomeEntry {
+  public class HomeInfo {
     /// <summary>
     /// Default constructor.
     /// </summary>
-    public HomeEntry() {
+    public HomeInfo() {
     }
 
     /// <summary>
     /// Constructor for easily creating entries.
     /// </summary>
-    /// <param name="id">The ID for the entry.</param>
-    /// <param name="year">The year (1 through 9999) for the entry date.</param>
-    /// <param name="month">The month (1 through 12) for the entry month.</param>
-    /// <param name="day">The day (1 through the number of days for the month) for the entry day.</param>
-    /// <param name="activityType">The activity type for the entry.</param>
-    /// <param name="duration">The duration for the entry (in minutes).</param>
+    /// <param name="state">The State that the Home resides in(USA).</param>
     /// <param name="intensity">The intensity for the entry.</param>
     /// <param name="exclude">Whether or not the entry should be excluded when calculating the total fitness activity.</param>
     /// <param name="notes">The notes for the entry.</param>
-    public HomeEntry(int id, int year, int month, int day,
-        double duration, bool exclude = false, string notes = null) {
-      Id = id;
-      Date = new DateTime(year, month, day);
-      Duration = duration;
+    public HomeInfo(string state, bool exclude = false, string notes = null) {
+      State = state;
       Exclude = exclude;
       Notes = notes;
     }
@@ -47,9 +39,9 @@ namespace RenewableHome.Models {
     public DateTime Date { get; set; }
 
     /// <summary>
-    /// The duration for the entry (in minutes).
+    /// The State that the Home resides in(USA).
     /// </summary>
-    public double Duration { get; set; }
+    public string State { get; set; }
 
     /// <summary>
     /// Whether or not this entry should be excluded when calculating the total fitness activity.

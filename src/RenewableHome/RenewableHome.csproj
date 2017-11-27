@@ -112,7 +112,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EnergyType.cs" />
-    <Compile Include="Models\HomeEntry.cs" />
+    <Compile Include="Models\HomeInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
