@@ -16,27 +16,16 @@ namespace RenewableHome.Models {
     }
 
     /// <summary>
-    /// Constructor for easily creating entries.
+    /// Constructor for creating the basic infomration about a home entry.
     /// </summary>
     /// <param name="state">The State that the Home resides in(USA).</param>
-    /// <param name="intensity">The intensity for the entry.</param>
-    /// <param name="exclude">Whether or not the entry should be excluded when calculating the total fitness activity.</param>
-    /// <param name="notes">The notes for the entry.</param>
-    public HomeInfo(string state, bool exclude = false, string notes = null) {
+    /// <param name="areaSqFt">The area of the home in square ft.</param>
+    /// <param name="KWperMonth">The KW hours used per month.</param>
+    public HomeInfo(string state, double areaSqFt, double KWperMonth) {
       State = state;
-      Exclude = exclude;
-      Notes = notes;
+      AreaSqFt = areaSqFt;
+      KWperMonth = KWperMonth;
     }
-
-    /// <summary>
-    /// The ID of the entry.
-    /// </summary>
-    public int Id { get; set; }
-
-    /// <summary>
-    /// The date of the entry. Should not include a time portion.
-    /// </summary>
-    public DateTime Date { get; set; }
 
     /// <summary>
     /// The State that the Home resides in(USA).
@@ -44,14 +33,13 @@ namespace RenewableHome.Models {
     public string State { get; set; }
 
     /// <summary>
-    /// Whether or not this entry should be excluded when calculating the total fitness activity.
+    /// The area of the home in squre ft.
     /// </summary>
-    public bool Exclude { get; set; }
-
+    public double AreaSqFt { get; set; }
+    
     /// <summary>
-    /// The notes for the entry.
+    /// The KW hours used per month.
     /// </summary>
-    [MaxLength(200, ErrorMessage = "The Notes filed cannot be longer than 200 characters.")]
-    public string Notes { get; set; }
+    public string KwperMonth { get; set; }
   }
 }

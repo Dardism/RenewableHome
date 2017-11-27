@@ -1,70 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RenewableHome.Models;
 
 namespace RenewableHome.Controllers {
   public class HomeController : Controller {
-    // GET: Home
+
+    private HomeInfo _homeInfo = null;
+
+    public HomeController() {
+      HomeInfo _homeInfo = new HomeInfo();
+    }
+
+    // GET: HomeInfo initialization
     public ActionResult Index(){
-      return View();
+      return View(_homeInfo);
     }
 
-    // GET: Home/Details/5
-    public ActionResult Details(int id){
-      return View();
-    }
-
-    // GET: Home/Create
-    public ActionResult Create(){
-      return View();
-    }
-
-    // POST: Home/Create
+    //POST: Index, HomeInfo validation
     [HttpPost]
-    public ActionResult Create(FormCollection collection){
-      try {
-        // TODO: Add insert logic here
-        return RedirectToAction("Index");
+    public ActionResult Index(HomeInfo homeInfo) {
+
+      ValidateEntry(homeInfo);
+
+      if (ModelState.IsValid) {
+        TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KwperMonth = homeInfo.KwperMonth };
+        TempData.Keep();
+
+        return RedirectToAction("EnergySelection");
       }
-      catch {
-        return View();
-      }
+
+      return View(homeInfo);
     }
 
-    // GET: Home/Edit/5
-    public ActionResult Edit(int id){
+    // GET: EnergySelection
+    public ActionResult EnergySelection(){
+
+      _homeInfo = (HomeInfo)TempData["HomeInfo"];
+
+      return View(_homeInfo);
+    }
+
+    // POST: EnergySelection
+    [HttpPost]
+    public ActionResult EnergySelection(EnergyType energySelection){
       return View();
     }
 
-    // POST: Home/Edit/5
-    [HttpPost]
-    public ActionResult Edit(int id, FormCollection collection)
-    {
-      try{
-        // TODO: Add update logic here
-        return RedirectToAction("Index");
-      }
-      catch{
-        return View();
-      }
-    }
-
-    // GET: Home/Delete/5
-    public ActionResult Delete(int id){
-      return View();
-    }
-
-    // POST: Home/Delete/5
-    [HttpPost]
-    public ActionResult Delete(int id, FormCollection collection){
-      try{
-        // TODO: Add delete logic here
-        return RedirectToAction("Index");
-      }
-      catch{
-        return View();
+    private void ValidateEntry(HomeInfo homeInfo) {
+      if (ModelState.IsValidField("AreaSqFt") && homeInfo.AreaSqFt <= 0) {
+        ModelState.AddModelError("AreaSqFt", "The Square Footage of your home must be greater than '0'.");
       }
     }
   }
