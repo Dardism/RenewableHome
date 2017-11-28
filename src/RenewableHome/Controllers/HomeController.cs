@@ -27,7 +27,7 @@ namespace RenewableHome.Controllers {
       ValidateEntry(homeInfo);
 
       if (ModelState.IsValid) {
-        TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KwperMonth = homeInfo.KwperMonth };
+        TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KWperMonth = homeInfo.KWperMonth };
         TempData.Keep();
 
         return RedirectToAction("EnergySelection");
@@ -52,7 +52,7 @@ namespace RenewableHome.Controllers {
 
     private void ValidateEntry(HomeInfo homeInfo) {
       if (ModelState.IsValidField("AreaSqFt") && homeInfo.AreaSqFt <= 0) {
-        ModelState.AddModelError("AreaSqFt", "The Square Footage of your home must be greater than '0'.");
+        ModelState.AddModelError("AreaSqFt", "The square footage of your home must be greater than '0'.");
       }
     }
   }

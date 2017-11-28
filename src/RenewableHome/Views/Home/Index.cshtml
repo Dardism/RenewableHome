@@ -19,21 +19,74 @@
 </div><!--/jumbotron-->
 
 <div class="container pt-4">
-@*@using (Html.BeginForm()) {
+@using (Html.BeginForm()) {
 	@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				@Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-				@Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
+				@Html.LabelFor(m => m.State, new { @class = "control-label" })
+				@Html.DropDownListFor(m => m.State, new List<SelectListItem> {
+											 new SelectListItem { Value = "1264.7" , Text = "Alabama" },
+											 new SelectListItem { Value = "605.1" , Text = "Alaska" },
+											 new SelectListItem { Value = "1012.7" , Text = "Arizona" },
+											 new SelectListItem { Value = "1142.6" , Text = "Arkansas" },
+											 new SelectListItem { Value = "561.8" , Text = "California" },
+											 new SelectListItem { Value = "687.4" , Text = "Colorado" },
+											 new SelectListItem { Value = "729.7" , Text = "Connecticut" },
+											 new SelectListItem { Value = "949.8" , Text = "Delaware" },
+											 new SelectListItem { Value = "1092.3" , Text = "Florida" },
+											 new SelectListItem { Value = "1151.5" , Text = "Georgia" },
+											 new SelectListItem { Value = "506.4" , Text = "Hawaii" },
+											 new SelectListItem { Value = "982.1" , Text = "Idaho" },
+											 new SelectListItem { Value = "745.2" , Text = "Illinois" },
+											 new SelectListItem { Value = "1008.6" , Text = "Indiana" },
+											 new SelectListItem { Value = "891.4" , Text = "Iowa" },
+											 new SelectListItem { Value = "928" , Text = "Kansas" },
+											 new SelectListItem { Value = "1177.3" , Text = "Kentucky" },
+											 new SelectListItem { Value = "1291.4" , Text = "Louisiana" },
+											 new SelectListItem { Value = "549.4" , Text = "Maine" },
+											 new SelectListItem { Value = "1024.9" , Text = "Maryland" },
+											 new SelectListItem { Value = "614.9" , Text = "Massachusetts" },
+											 new SelectListItem { Value = "653.6" , Text = "Michigan" },
+											 new SelectListItem { Value = "809.6" , Text = "Minnesota" },
+											 new SelectListItem { Value = "1247.9" , Text = "Mississippi" },
+											 new SelectListItem { Value = "1094.8" , Text = "Missouri" },
+											 new SelectListItem { Value = "853.7" , Text = "Montana" },
+											 new SelectListItem { Value = "1022.3" , Text = "Nebraska" },
+											 new SelectListItem { Value = "894.2" , Text = "Nevada" },
+											 new SelectListItem { Value = "619.4" , Text = "New Hampshire" },
+											 new SelectListItem { Value = "669.7" , Text = "New Jersey" },
+											 new SelectListItem { Value = "633.4" , Text = "New Mexico" },
+											 new SelectListItem { Value = "591" , Text = "New York" },
+											 new SelectListItem { Value = "1135.7" , Text = "North Carolina" },
+											 new SelectListItem { Value = "1239.6" , Text = "North Dakota" },
+											 new SelectListItem { Value = "901.3" , Text = "Ohio" },
+											 new SelectListItem { Value = "1137.7" , Text = "Oklahoma" },
+											 new SelectListItem { Value = "929.5" , Text = "Oregon" },
+											 new SelectListItem { Value = "853.9" , Text = "Pennsylvania" },
+											 new SelectListItem { Value = "583" , Text = "Rhode Island" },
+											 new SelectListItem { Value = "1186.6" , Text = "South Carolina" },
+											 new SelectListItem { Value = "1045.6" , Text = "South Dakota" },
+											 new SelectListItem { Value = "1285.8" , Text = "Tennessee" },
+											 new SelectListItem { Value = "1158.1" , Text = "Texas" },
+											 new SelectListItem { Value = "746.7" , Text = "Utah" },
+											 new SelectListItem { Value = "568.4" , Text = "Vermont" },
+											 new SelectListItem { Value = "1171.5" , Text = "Virginia" },
+											 new SelectListItem { Value = "1001.5" , Text = "Washington" },
+											 new SelectListItem { Value = "1158" , Text = "West Virginia" },
+											 new SelectListItem { Value = "694.4" , Text = "Wisconsin" },
+											 new SelectListItem { Value = "863.2" , Text = "Wyoming" },
+											 new SelectListItem { Value = "721.5" , Text = "D.C." }
+										}, "", new { @class = "form-control" }) 
+				<!--http://insideenergy.org/2014/05/22/using-energy-how-much-electricity-do-you-use-each-month/-->
 			</div>
 			<div class="form-group">
-				@Html.LabelFor(m => m.Duration, new { @class = "control-label" })
-				@Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+				@Html.LabelFor(m => m.KWperMonth, new { @class = "control-label" })
+				@Html.TextBoxFor(m => m.KWperMonth, new { @class = "form-control" })
 			</div>
 		</div>
 	</div>
-}*@
+}
 	<!--Specifications-->
 	<div id="specifications" class="row my-5">
 		<div class="col-lg order-lg-2">
