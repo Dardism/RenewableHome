@@ -91,8 +91,6 @@
   <ItemGroup>
     <Content Include="css\custom.css" />
     <Content Include="Global.asax" />
-    <Content Include="img\ecma.png" />
-    <Content Include="img\Forest2.jpg" />
     <Content Include="img\Forest3.jpg" />
     <Content Include="img\jay.png" />
     <Content Include="img\json.png" />
@@ -100,9 +98,15 @@
     <Content Include="img\mountain1.jpeg" />
     <Content Include="img\mountain2.jpg" />
     <Content Include="img\nodestradamus.png" />
+    <Content Include="img\nuclearpp.jpeg" />
     <Content Include="img\pdx.jpg" />
     <Content Include="img\robbie.png" />
+    <Content Include="img\solar-panel.jpeg" />
+    <Content Include="img\thermal.jpg" />
     <Content Include="img\vivianne.png" />
+    <Content Include="img\water.jpeg" />
+    <Content Include="img\windTurbine.jpeg" />
+    <Content Include="scripts\custom.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +128,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\EnergySelection.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

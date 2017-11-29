@@ -21,10 +21,10 @@ namespace RenewableHome.Models {
     /// <param name="state">The State that the Home resides in(USA).</param>
     /// <param name="areaSqFt">The area of the home in square ft.</param>
     /// <param name="KWperMonth">The KW hours used per month.</param>
-    public HomeInfo(string state, double areaSqFt, double kwPerMonth) {
-      State = state;
+    public HomeInfo( double areaSqFt, double kwPerMonth, string state = null) {
       AreaSqFt = areaSqFt;
       KWperMonth = kwPerMonth;
+      State = state;
     }
 
     /// <summary>

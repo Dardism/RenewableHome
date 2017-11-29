@@ -33,3 +33,17 @@ h3 {
   opacity: 0.5; 
   filter:(opacity=50);
 }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-valid
+{
+    display: none;
+}
+.validation-summary-valid
+{
+    display: none;
+}
+/*.control-label text-white{ //This isn't working :(
+  font-size: 23px;
+}*/

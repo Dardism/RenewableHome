@@ -2,29 +2,28 @@
 @using RenewableHome.Models
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!--jumbotron-->
-<div class="jumbotron jumbotron-fluid text-white">
-	<div class="container text-sm-center pt-5">
-		<h1 class="display-2">Renewable Home</h1>
-		<p class="lead">How switching to renewable energy sources can effect your long-term energy cost</p>
-		<div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">More Info</button>
-			<a class="btn btn-light btn-lg" href="#specifications">Start Here</a>
-		</div>
-	</div>
-</div><!--/jumbotron-->
-
+<!--homeInfo form-->
 <div class="container pt-4">
 @using (Html.BeginForm()) {
-	@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				@Html.LabelFor(m => m.State, new { @class = "control-label" })
+				@Html.LabelFor(m => m.KWperMonth, "Average Kilowatt-Hours Used Per Month*", new { @class = "control-label text-white" })
+				@Html.TextBoxFor(m => m.KWperMonth, new { @id = "txtKWperMonth", @class = "form-control" })
+				@Html.ValidationMessageFor(m => m.KWperMonth, "Kilowatt is required", new { @class = "text-danger" })
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.AreaSqFt, "Home in Square Feet", new { @class = "control-label text-white" })
+				@Html.TextBoxFor(m => m.AreaSqFt, new { @class = "form-control" })
+				@Html.ValidationMessageFor(m => m.AreaSqFt, "Square feet is required", new { @class = "text-danger" })
+			</div>
+			<p>*Alternatively, you can select your state below to generate the average KW/month used by the homes of that state.<sub>1</sub></p>
+			<div class="form-group">
+				@Html.LabelFor(m => m.State, new { @class = "control-label text-white" })
 				@Html.DropDownListFor(m => m.State, new List<SelectListItem> {
 											 new SelectListItem { Value = "1264.7" , Text = "Alabama" },
 											 new SelectListItem { Value = "605.1" , Text = "Alaska" },
@@ -77,43 +76,18 @@
 											 new SelectListItem { Value = "694.4" , Text = "Wisconsin" },
 											 new SelectListItem { Value = "863.2" , Text = "Wyoming" },
 											 new SelectListItem { Value = "721.5" , Text = "D.C." }
-										}, "", new { @class = "form-control" }) 
+										}, "", new { @id = "drpState", @class = "form-control" }) 
 				<!--http://insideenergy.org/2014/05/22/using-energy-how-much-electricity-do-you-use-each-month/-->
 			</div>
-			<div class="form-group">
-				@Html.LabelFor(m => m.KWperMonth, new { @class = "control-label" })
-				@Html.TextBoxFor(m => m.KWperMonth, new { @class = "form-control" })
-			</div>
+			<br />
+			<button type="submit" class="btn btn-success btn-lg margin-right">
+				<span class="glyphicon glyphicon-save"></span> Submit
+			</button>
 		</div>
 	</div>
 }
-	<!--Specifications-->
-	<div id="specifications" class="row my-5">
-		<div class="col-lg order-lg-2">
-			<h3 class="mb-4">Your Home Information</h3>
-			<img class="mb-4 img-fluid rounded d-none d-sm-block" src="~/img/pdx.jpg" alt="Portland">
-			<p>Select your State where your home is located (default energy comsumption can be used)</p>
-			<p>Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.</p>
-		</div>
-		<div class="col-lg order-lg-1">
-			<h3 class="mb-4">Expert Speakers</h3>
-			<p>Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!</p>
-			<p>Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript.</p>
-			<p>Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.</p>
-		</div>
-		<div class="col-lg order-lg-3">
-			<h3 class="mb-4">What You'll Learn</h3>
-			<div class="list-group">
-				<a href="#" class="list-group-item list-group-item-action"><strong>MongoDB</strong>: NoSQL database</a>
-				<a href="#" class="list-group-item list-group-item-action"><strong>Express</strong>: Framework for Node</a>
-				<a href="#" class="list-group-item list-group-item-action"><strong>React</strong>: JavaScript library</a>
-				<a href="#" class="list-group-item list-group-item-action"><strong>Node.js</strong>: JavaScript environment</a>
-				<a href="#" class="list-group-item list-group-item-action"><strong>ES2015</strong>: Latest version of JavaScript</a>
-				<a href="#" class="list-group-item list-group-item-action"><strong>Babel</strong>: JavaScript compiler</a>
-			</div>
-		</div>
-	</div><!--/Specifications-->
-	<!--callout button-->
+<!--/homeInfo form-->
+
 	<button type="button" class="btn btn-outline-info btn-lg d-block mx-auto my-5"
 					data-toggle="modal" data-target="#register">
 		Don't Miss Out, Register Now
