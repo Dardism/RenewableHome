@@ -5,56 +5,69 @@
 }
 
 	<!--Energy Selection-->
-<h1 id="energySelection" class="display-4 text-center my-5 text-white">Energy Selection</h1>
-<div class="row card-deck">
-	<div class="col-md-6 col-lg-4">
-		<div class="card mb-3">
-			<img class="card-img-top" src="~/img/solar-panel.jpeg" alt="Solar">
-			<div class="card-body">
-				<h4 class="card-title">Solar</h4>
-				<!--Insert slider bar here-->
+<div class="container pt-1">
+	<div class="row justify-content-md-center">
+	<h1 id="energySelection" class="display-4 text-center my-5 text-white">Energy Selection</h1>
+		<div class="row card-deck">
+			<div class="col-md-6 col-lg-4">
+				<div class="card mb-3">
+					<img class="card-img-top" src="~/img/solar-panel2.jpeg" alt="Solar">
+					<div class="card-body">
+						<h4 class="card-title">Solar</h4>
+						<!--Insert slider bar here-->
+						<input id="sliderSolar" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+						<span id="sliderSolarCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderSolarSliderVal">0</span>%</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4">
+				<div class="card mb-3">
+					<img class="card-img-top" src="~/img/windTurbine2.jpeg" alt="Wind">
+					<div class="card-body">
+						<h4 class="card-title">Wind</h4>
+						<!--Insert slider bar here-->
+						<input id="sliderWind" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+						<span id="sliderWindCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderWindSliderVal">0</span>%</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4">
+				<div class="card mb-3">
+					<img class="card-img-top" src="~/img/water2.jpeg" alt="Water">
+					<div class="card-body">
+						<h4 class="card-title">Hydropower</h4>
+						<!--Insert slider bar here-->
+						<input id="sliderHydro" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+						<span id="sliderHydroCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderHydroSliderVal">0</span>%</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4">
+				<div class="card mb-3">
+					<img class="card-img-top" src="~/img/nuclearpp2.jpeg" alt="Nuclear">
+					<div class="card-body">
+						<h4 class="card-title">Nuclear</h4>
+						<!--Insert slider bar here-->
+						<input id="sliderNuclear" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+						<span id="sliderNuclearCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderNuclearSliderVal">0</span>%</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4">
+				<div class="card mb-3">
+					<img class="card-img-top" src="~/img/thermal2.jpg" alt="Geo-thermal">
+					<div class="card-body">
+						<h4 class="card-title">Geo-Thermal</h4>
+						<!--Insert slider bar here-->
+						<input id="sliderGeo" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+						<span id="sliderGeoCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderGeoSliderVal">0</span>%</span>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="col-md-6 col-lg-4">
-		<div class="card mb-3">
-			<img class="card-img-top" src="~/img/windTurbine.jpeg" alt="Wind">
-			<div class="card-body">
-				<h4 class="card-title">Wind</h4>
-				<!--Insert slider bar here-->
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-6 col-lg-4">
-		<div class="card mb-3">
-			<img class="card-img-top" src="~/img/water.jpeg" alt="Water">
-			<div class="card-body">
-				<h4 class="card-title">Hydropower</h4>
-				<!--Insert slider bar here-->
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-6 col-lg-4">
-		<div class="card mb-3">
-			<img class="card-img-top" src="~/img/nuclearpp.jpeg" alt="Nuclear">
-			<div class="card-body">
-				<h4 class="card-title">Nuclear</h4>
-				<!--Insert slider bar here-->
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-6 col-lg-4">
-		<div class="card mb-3">
-			<img class="card-img-top" src="~/img/thermal.jpg" alt="Geo-thermal">
-			<div class="card-body">
-				<h4 class="card-title">Geo-Thermal</h4>
-				<!--Insert slider bar here-->
-			</div>
-		</div>
-	</div>
-
-</div><!--/Energy Selection-->
+	</div><!--/Energy Selection-->
+</div><!--/container-->
