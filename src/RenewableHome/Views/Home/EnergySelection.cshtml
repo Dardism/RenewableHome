@@ -4,12 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-	<!--Energy Selection-->
-<div class="container pt-1">
+<!--Energy Selection-->
+<div class="container">
 	<div class="row justify-content-md-center">
 	<h1 id="energySelection" class="display-4 text-center my-5 text-white">Energy Selection</h1>
+	<p>Using the sliders below, create a combination of one or more different energy sources to power your home. 
+		Learn more about each resources by selecting the "more info" link</p>
 		<div class="row card-deck">
-			<div class="col-md-6 col-lg-4">
+
+			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
 					<img class="card-img-top" src="~/img/solar-panel2.jpeg" alt="Solar">
 					<div class="card-body">
@@ -17,11 +20,15 @@
 						<!--Insert slider bar here-->
 						<input id="sliderSolar" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderSolarCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderSolarSliderVal">0</span>%</span>
+						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+										data-toggle="modal" data-target="#solar">
+							More Info
+						</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-4">
+			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
 					<img class="card-img-top" src="~/img/windTurbine2.jpeg" alt="Wind">
 					<div class="card-body">
@@ -29,11 +36,15 @@
 						<!--Insert slider bar here-->
 						<input id="sliderWind" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderWindCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderWindSliderVal">0</span>%</span>
+						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+										data-toggle="modal" data-target="#wind">
+							More Info
+						</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-4">
+			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
 					<img class="card-img-top" src="~/img/water2.jpeg" alt="Water">
 					<div class="card-body">
@@ -41,33 +52,219 @@
 						<!--Insert slider bar here-->
 						<input id="sliderHydro" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderHydroCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderHydroSliderVal">0</span>%</span>
+						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+										data-toggle="modal" data-target="#hydro">
+							More Info
+						</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-4">
+			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/nuclearpp2.jpeg" alt="Nuclear">
+					<img class="card-img-top" src="~/img/biofuel1.jpeg" alt="Biomass">
 					<div class="card-body">
-						<h4 class="card-title">Nuclear</h4>
+						<h4 class="card-title">Biomass</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderNuclear" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderNuclearCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderNuclearSliderVal">0</span>%</span>
+						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+										data-toggle="modal" data-target="#biomass">
+							More Info
+						</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-4">
+			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/thermal2.jpg" alt="Geo-thermal">
+					<img class="card-img-top" src="~/img/thermal2.jpg" alt="Geothermal">
 					<div class="card-body">
-						<h4 class="card-title">Geo-Thermal</h4>
+						<h4 class="card-title">Geothermal</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderGeo" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderGeoCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderGeoSliderVal">0</span>%</span>
+						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+										data-toggle="modal" data-target="#geothermal">
+							More Info
+						</button>
 					</div>
 				</div>
 			</div>
+
+			<div class="col-md-6 col-lg-4 col-sm-9">
+				<p>Be sure to make your selection add up to 100% before submitting your entry.</p>
+				<button id="buttonSubmitEnergy" type="submit" class="btn btn-success btn-xlarge btn-block mt-4">
+					<span class="glyphicon glyphicon-save"></span> Submit
+				</button>
+			</div>
+
 		</div>
 	</div><!--/Energy Selection-->
 </div><!--/container-->
+
+<!----------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------->
+
+<!-- Modal Solar -->
+<div class="modal fade" id="solar" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-white">
+				<h5 class="modal-title" id="exampleModalLongTitle">Solar</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-dark">Because of the abundance of sunlight, it has been a leader in personal renewable energy sources. 
+				For residential homes, photovoltaic (PV) systems using solar panels are used. The initial costs are currently high, 
+				but as current technologies in the field advance, and with the aid of government subsidies, owning a personal PV 
+				system will only become easier.</p>
+				<img class="my-3 img-fluid" src="~/img/sun3.jpeg" alt="Sun"/>
+				<h5 class="mb-4 text-dark">Cost Per Killowatt Hour: 18 cents</h5>
+				<p class="text-dark">
+					References/Additional Information:
+				</p>
+				<ul>
+					<li><a href="http://www.renewable-energysources.com/">http://www.renewable-energysources.com/</a></li>
+					<li><a href="https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf">https://www.eia.gov...electricity_generation.pdf</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><!--/Modal Solar-->
+
+<!-- Modal Wind -->
+<div class="modal fade" id="wind" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-white">
+				<h5 class="modal-title" id="exampleModalLongTitle">Wind</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-dark">
+					Mainly generated by large wind plants, these are composed of large wind turbines that 
+					are used as a means to generate electricity, and are already widely used throughout the U.S. 
+					Some progress has been made for residential purposes, but currently farmers and those with open-air 
+					fields of land are able to harness their own energy individually. The main hurdle wind energy sees 
+					is the ability to store the energy generated and distribute it to areas where needed. This would 
+					help the U.S. in general in forming a more efficient and “smarter” grid.
+				<img class="my-3 img-fluid" src="~/img/windtower.jpeg" alt="Windmill" />
+				<h5 class="mb-4 text-dark">Cost Per Killowatt Hour: 3.45 cents</h5>
+				<p class="text-dark">
+					References/Additional Information:
+				</p>
+				<ul>
+					<li><a href="http://www.renewable-energysources.com/">http://www.renewable-energysources.com/</a></li>
+					<li><a href="https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf">https://www.eia.gov...electricity_generation.pdf</a></li>
+					<li>Pierce, Alan. "Building a Smart National U.S. Power Grid." Tech Directions 68.9 (2009): 10-11. EBSCOhost.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><!--/Modal Wind-->
+
+<!-- Modal Hydro -->
+<div class="modal fade" id="hydro" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-white">
+				<h5 class="modal-title" id="exampleModalLongTitle">Hydropower</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-dark">
+					As the leading renewable resource used in the United States, Hydro Powered plants 
+					essentially rely on the movement of water. This flowing water pushes against turbines 
+					to generate electricity.  Besides rivers for this kind of source, harsening waves of 
+					the coast are also being considered as a means to generate electricity. In this context, 
+					hydro-powered plants would be able to add its energy to the used power grid. As technology 
+					improves, coastal regions could benefit more, and if advanced enough, the storage and transfer 
+					of energy from hydro plants could provide more residential homes with renewable energy.
+				</p>
+				<img class="my-3 img-fluid" src="~/img/dam1.jpeg" alt="Dam" />
+				<h5 class="mb-4 text-dark">Cost Per Killowatt Hour: 8.75 cents</h5>
+				<p class="text-dark">
+					References/Additional Information:
+				</p>
+				<ul>
+					<li><a href="http://www.renewable-energysources.com/">http://www.renewable-energysources.com/</a></li>
+					<li><a href="https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf">https://www.eia.gov...electricity_generation.pdf</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><!--/Modal Hydro-->
+
+<!-- Modal Biomass -->
+<div class="modal fade" id="biomass" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-white">
+				<h5 class="modal-title" id="exampleModalLongTitle">Biomass</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-dark">
+					If correctly utilized, biopower, or the burning of biomaterial for fuel, 
+					can itself be carbon neutral, and, since it can be regrown, is considered 
+					a renewable source. Some practices however, would result in a negative carbon 
+					output. This is caused mainly by inefficient regrowth practices in the agriculture 
+					industry. With advancement in technology, generating fuel from food and farm waste 
+					can help reduce the size of landfills and can increase a home and surrounding area’s sustainability.
+				</p>
+				<img class="my-3 img-fluid" src="~/img/wood.jpeg" alt="Firewood" />
+				<h5 class="mb-4 text-dark">Cost Per Killowatt Hour: 9.8 cents</h5>
+				<p class="text-dark">
+					References/Additional Information:
+				</p>
+				<ul>
+					<li><a href="http://www.renewable-energysources.com/">http://www.renewable-energysources.com/</a></li>
+					<li><a href="https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf">https://www.eia.gov...electricity_generation.pdf</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><!--/Modal Biomass-->
+
+<!-- Modal Geothermal -->
+<div class="modal fade" id="geothermal" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-white">
+				<h5 class="modal-title" id="exampleModalLongTitle">Geothermal</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-dark">
+					Generated from the heat of the eath's crust, these "hot spots" of the earth generate steam that is captured 
+					and is able to turn genereators. The use of geothermal energy is largely based on the geographic make up of the
+					land, and those major plants are located in the western United States. On a smaller scale, heat pumps are drilled into
+					the ground to help cool and heat buildings. These ground-source pumps are the most effiecent method for heating and cooling. 
+					As with solar, there is currently a high up-front cost, and as with buildings that were not built with this type on energy 
+					in mind, the cost could be higher. 
+				</p>
+				<img class="my-3 img-fluid" src="~/img/rock1.jpeg" alt="Thermal Rock" />
+				<h5 class="mb-4 text-dark">Cost Per Killowatt Hour: 5.55 cents</h5>
+				<p class="text-dark">
+					References/Additional Information:
+				</p>
+				<ul>
+					<li><a href="https://energy.gov/eere/geothermal/electricity-generation">https://energy.gov...electricity-generation</a></li>
+					<li><a href="http://www.ucsusa.org/clean_energy/our-energy-choices/renewable-energy/how-geothermal-energy-works.html#.WiCyWNuZOnc">
+						http://www.ucsusa.org.../how-geothermal-energy-works</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><!--/Modal Geothermal-->

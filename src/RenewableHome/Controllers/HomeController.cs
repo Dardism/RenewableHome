@@ -24,7 +24,7 @@ namespace RenewableHome.Controllers {
     [HttpPost]
     public ActionResult Index(HomeInfo homeInfo) {
 
-      //ValidateEntry(homeInfo);
+      ValidateEntry(homeInfo);
 
       if (ModelState.IsValid) {
         TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KWperMonth = homeInfo.KWperMonth };

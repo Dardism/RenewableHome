@@ -1,5 +1,5 @@
 ﻿body {
-  background-image: url('../img/mountain2.jpg');
+  background-image: url('../img/mount3.jpg');
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -29,7 +29,7 @@ h3 {
 }
 
 #nav1{  
-  background-color:#F00; /*whichever you want   color: rgba(255, 255, 255, .85);*/
+  background-color:#F00;
   opacity: 0.5; 
   filter:(opacity=50);
 }
@@ -38,12 +38,22 @@ h3 {
 -----------------------------------------------------------*/
 .field-validation-valid
 {
-    display: none;
+  display: none;
 }
 .validation-summary-valid
 {
-    display: none;
+  display: none;
 }
-/*.control-label text-white{ //This isn't working :(
-  font-size: 23px;
-}*/
+#buttonSubmitEnergy {
+  margin: auto;    
+  display: block;
+}
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px; 
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
