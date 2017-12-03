@@ -5,14 +5,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RenewableHome.Models;
+using RenewableHome.Data;
 
 namespace RenewableHome.Controllers {
   public class HomeController : Controller {
 
     private HomeInfo _homeInfo = null;
+    private EnergySourcesRepo _energySourceRepo = null;
 
     public HomeController() {
-      HomeInfo _homeInfo = new HomeInfo();
+      _homeInfo = new HomeInfo();
+      _energySourceRepo = new EnergySourcesRepo();
     }
 
     // GET: HomeInfo initialization
@@ -24,7 +27,7 @@ namespace RenewableHome.Controllers {
     [HttpPost]
     public ActionResult Index(HomeInfo homeInfo) {
 
-      ValidateEntry(homeInfo);
+      ValidateHomeInfo(homeInfo);
 
       if (ModelState.IsValid) {
         TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KWperMonth = homeInfo.KWperMonth };
@@ -39,20 +42,27 @@ namespace RenewableHome.Controllers {
     // GET: EnergySelection
     public ActionResult EnergySelection(){
 
+      List<EnergyType> energyTypes = _energySourceRepo.GetEnergyTypes();
       _homeInfo = (HomeInfo)TempData["HomeInfo"];
 
-      return View(_homeInfo);
+      return View(energyTypes);
     }
 
     // POST: EnergySelection
     [HttpPost]
-    public ActionResult EnergySelection(EnergyType energySelection){
+    public ActionResult EnergySelection(List<EnergyType> energySelection){
+
+
+
       return View();
     }
 
-    private void ValidateEntry(HomeInfo homeInfo) {
+    private void ValidateHomeInfo(HomeInfo homeInfo) {
       if (ModelState.IsValidField("AreaSqFt") && homeInfo.AreaSqFt <= 0) {
         ModelState.AddModelError("AreaSqFt", "The square footage of your home must be greater than '0'.");
+      }
+      if (ModelState.IsValidField("KWperMonth") && homeInfo.KWperMonth <= 0) {
+        ModelState.AddModelError("KWperMonth", "The Kilowatt hours of your home must be greater than '0'.");
       }
     }
   }

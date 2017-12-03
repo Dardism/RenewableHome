@@ -9,6 +9,7 @@
 <!--homeInfo form-->
 <div class="container pt-2">
 @using (Html.BeginForm()) {
+	@Html.ValidationSummary(null, new { @class = "alert alert-danger"})
 	<div class="row justify-content-md-center">
 		<div class="col-lg-5 col-md-6 col-sm-7">
 			<div class="form-group">

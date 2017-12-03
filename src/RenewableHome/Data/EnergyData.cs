@@ -7,7 +7,7 @@ using RenewableHome.Models;
 namespace RenewableHome.Data {
   public class EnergyData {
     /// <summary>
-    /// Provides in-memory data storage for the energy sources
+    /// Provides in-memory data storage for the energy sources used
     /// </summary>
     public static List<EnergyType> EnergyTypes { get; set; }
 
