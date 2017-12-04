@@ -11,10 +11,11 @@ namespace RenewableHome.Models {
     ///<summary>
     ///Constructors a type of energy to be created
     /// </summary>
-    public EnergyType(string name, string descr, double costPerKWhour) {
+    public EnergyType(string name, string descr, double costPerKWhour, string percentInd) {
       Name = name;
       Descr = descr;
       CostPerKWhour = costPerKWhour;
+      PercentInd = percentInd;
     }
 
     /// <summary>
@@ -31,5 +32,10 @@ namespace RenewableHome.Models {
     /// the cost per KiloWatt hour of the nergy type
     /// </summary>
     public double CostPerKWhour { get; private set; }
+
+    /// <summary>
+    /// the indicator of the slider for the selected energy source
+    /// </summary>
+    public string PercentInd { get; private set; }
   }
 }

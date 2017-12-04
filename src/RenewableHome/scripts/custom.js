@@ -27,4 +27,5 @@ $("#sliderGeo").on("slide", function (slideEvt) {
 $("#sliderNuclear").slider();
 $("#sliderNuclear").on("slide", function (slideEvt) {
   $("#sliderNuclearSliderVal").text(slideEvt.value);
+  $('#Value').val(slideEvt.value);
 });

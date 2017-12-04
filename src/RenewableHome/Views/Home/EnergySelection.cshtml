@@ -1,43 +1,48 @@
-﻿
+﻿@model List<EnergyType>
+@using RenewableHome.Models
+
 @{
     ViewBag.Title = "EnergySelection";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!--Energy Selection-->
+<!--energy selection form-->
 <div class="container">
+@using (Html.BeginForm()) {
 	<div class="row justify-content-md-center">
 	<h1 id="energySelection" class="display-4 text-center my-5 text-white">Energy Selection</h1>
 	<p>Using the sliders below, create a combination of one or more different energy sources to power your home. 
 		Learn more about each resources by selecting the "more info" link</p>
 		<div class="row card-deck">
 
-			<div class="col-md-6 col-lg-4 col-sm-9">
-				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/solar-panel2.jpeg" alt="Solar">
-					<div class="card-body">
-						<h4 class="card-title">Solar</h4>
-						<!--Insert slider bar here-->
-						<input id="sliderSolar" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
-						<span id="sliderSolarCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderSolarSliderVal">0</span>%</span>
-						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
-										data-toggle="modal" data-target="#solar">
-							More Info
-						</button>
+				<div class="col-md-6 col-lg-4 col-sm-9">
+					<div class="card mb-3">
+						<img class="card-img-top" src="~/img/solar-panel2.jpeg" alt="@Model[0].Name">
+						<div class="card-body">
+							<h4 class="card-title">@Model[0].Name</h4>
+							<!--Insert slider bar here-->
+							<input id="sliderSolar" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
+							<span id="sliderSolarCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderSolarSliderVal">0</span>%</span>
+							<input type="hidden" id="solarValue" name="solarValueName"/>
+							<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
+											data-toggle="modal" data-target="#@Model[0].Name">
+								More Info
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
 			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/windTurbine2.jpeg" alt="Wind">
+					<img class="card-img-top" src="~/img/windTurbine2.jpeg" alt="@Model[1].Name">
 					<div class="card-body">
-						<h4 class="card-title">Wind</h4>
+						<h4 class="card-title">@Model[1].Name</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderWind" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderWindCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderWindSliderVal">0</span>%</span>
+						<input type="hidden" id="windValue" name="windValueName"/>
 						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
-										data-toggle="modal" data-target="#wind">
+										data-toggle="modal" data-target="#@Model[1].Name">
 							More Info
 						</button>
 					</div>
@@ -46,14 +51,15 @@
 
 			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/water2.jpeg" alt="Water">
+					<img class="card-img-top" src="~/img/water2.jpeg" alt="@Model[2].Name">
 					<div class="card-body">
-						<h4 class="card-title">Hydropower</h4>
+						<h4 class="card-title">@Model[2].Name</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderHydro" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderHydroCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderHydroSliderVal">0</span>%</span>
+						<input type="hidden" id="hydroValue" name="hydroValueName" />
 						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
-										data-toggle="modal" data-target="#hydro">
+										data-toggle="modal" data-target="#@Model[2].Name">
 							More Info
 						</button>
 					</div>
@@ -62,14 +68,15 @@
 
 			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/biofuel1.jpeg" alt="Biomass">
+					<img class="card-img-top" src="~/img/biofuel1.jpeg" alt="@Model[3].Name">
 					<div class="card-body">
-						<h4 class="card-title">Biomass</h4>
+						<h4 class="card-title">@Model[3].Name</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderNuclear" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderNuclearCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderNuclearSliderVal">0</span>%</span>
+						<input type="hidden" id="biomassValue" name="biomassValueName" />
 						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
-										data-toggle="modal" data-target="#biomass">
+										data-toggle="modal" data-target="#@Model[3].Name">
 							More Info
 						</button>
 					</div>
@@ -78,14 +85,15 @@
 
 			<div class="col-md-6 col-lg-4 col-sm-9">
 				<div class="card mb-3">
-					<img class="card-img-top" src="~/img/thermal2.jpg" alt="Geothermal">
+					<img class="card-img-top" src="~/img/thermal2.jpg" alt="@Model[4].Name">
 					<div class="card-body">
-						<h4 class="card-title">Geothermal</h4>
+						<h4 class="card-title">@Model[4].Name</h4>
 						<!--Insert slider bar here-->
 						<input id="sliderGeo" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="0" />
 						<span id="sliderGeoCurrentSliderValLabel">&nbsp;&nbsp;<span id="sliderGeoSliderVal">0</span>%</span>
+						<input type="hidden" id="geothermalValue" name="geothermalValueName" />
 						<button type="button" class="btn btn-outline-secondary btn-sm mx-auto mt-2"
-										data-toggle="modal" data-target="#geothermal">
+										data-toggle="modal" data-target="#@Model[4].Name">
 							More Info
 						</button>
 					</div>
@@ -94,20 +102,32 @@
 
 			<div class="col-md-6 col-lg-4 col-sm-9">
 				<p>Be sure to make your selection add up to 100% before submitting your entry.</p>
-				<button id="buttonSubmitEnergy" type="submit" class="btn btn-success btn-xlarge btn-block mt-4">
+				<button id="buttonSubmitEnergy" type="submit" class="btn btn-success btn-xlarge btn-block mt-4" onclick="DoSubmit()">
 					<span class="glyphicon glyphicon-save"></span> Submit
 				</button>
 			</div>
 
 		</div>
-	</div><!--/Energy Selection-->
+	</div><!--/energy selection form-->
+}
 </div><!--/container-->
+
+<script type="text/javascript">
+	function DoSubmit() {
+		document.getElementById("solarValue").value = document.getElementById("sliderSolar").value;
+		document.getElementById("windValue").value = document.getElementById("sliderWind").value;
+		document.getElementById("hydroValue").value = document.getElementById("sliderHydro").value;
+		document.getElementById("biomassValue").value = document.getElementById("sliderNuclear").value;
+		document.getElementById("geothermalValue").value = document.getElementById("sliderGeo").value;
+
+	}
+</script>
 
 <!----------------------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------------------->
 
 <!-- Modal Solar -->
-<div class="modal fade" id="solar" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+<div class="modal fade" id="Solar" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-secondary text-white">
@@ -136,7 +156,7 @@
 </div><!--/Modal Solar-->
 
 <!-- Modal Wind -->
-<div class="modal fade" id="wind" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+<div class="modal fade" id="Wind" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-secondary text-white">
@@ -169,7 +189,7 @@
 </div><!--/Modal Wind-->
 
 <!-- Modal Hydro -->
-<div class="modal fade" id="hydro" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+<div class="modal fade" id="Hydropower" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-secondary text-white">
@@ -203,7 +223,7 @@
 </div><!--/Modal Hydro-->
 
 <!-- Modal Biomass -->
-<div class="modal fade" id="biomass" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+<div class="modal fade" id="Biomass" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-secondary text-white">
@@ -236,7 +256,7 @@
 </div><!--/Modal Biomass-->
 
 <!-- Modal Geothermal -->
-<div class="modal fade" id="geothermal" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+<div class="modal fade" id="Geothermal" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-secondary text-white">

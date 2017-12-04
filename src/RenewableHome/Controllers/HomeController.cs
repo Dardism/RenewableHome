@@ -50,9 +50,19 @@ namespace RenewableHome.Controllers {
 
     // POST: EnergySelection
     [HttpPost]
-    public ActionResult EnergySelection(List<EnergyType> energySelection){
+    public ActionResult EnergySelection(List<EnergyType> energyTypes){
 
+      string solarVal = Request.Form["solarValueName"];
+      string windVal = Request.Form["windValueName"];
+      string hydroVal = Request.Form["hydroValueName"];
+      string biomassVal = Request.Form["biomassValueName"];
+      string geothermalVal = Request.Form["geothermalValueName"];
 
+      //validate input for calculation
+
+      //perform caluclation
+
+      //send user to result screen
 
       return View();
     }
