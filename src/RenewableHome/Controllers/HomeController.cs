@@ -10,11 +10,12 @@ using RenewableHome.Data;
 namespace RenewableHome.Controllers {
   public class HomeController : Controller {
 
-    private HomeInfo _homeInfo = null;
-    private EnergySourcesRepo _energySourceRepo = null;
+    private static HomeInfo _homeInfo = null;
+    private static EnergySourcesRepo _energySourceRepo = null;
+    private static double totalCost = 0;
+    private static List<EnergyType> _energyTypes = null;
 
     public HomeController() {
-      _homeInfo = new HomeInfo();
       _energySourceRepo = new EnergySourcesRepo();
     }
 
@@ -42,28 +43,41 @@ namespace RenewableHome.Controllers {
     // GET: EnergySelection
     public ActionResult EnergySelection(){
 
-      List<EnergyType> energyTypes = _energySourceRepo.GetEnergyTypes();
+      _energyTypes = _energySourceRepo.GetEnergyTypes();
       _homeInfo = (HomeInfo)TempData["HomeInfo"];
 
-      return View(energyTypes);
+      return View(_energyTypes);
     }
 
     // POST: EnergySelection
     [HttpPost]
     public ActionResult EnergySelection(List<EnergyType> energyTypes){
 
-      string solarVal = Request.Form["solarValueName"];
-      string windVal = Request.Form["windValueName"];
-      string hydroVal = Request.Form["hydroValueName"];
-      string biomassVal = Request.Form["biomassValueName"];
-      string geothermalVal = Request.Form["geothermalValueName"];
+      double solarVal = double.Parse(Request.Form["solarValueName"]) / 100;
+      double windVal = double.Parse(Request.Form["windValueName"]) / 100;
+      double hydroVal = double.Parse(Request.Form["hydroValueName"]) / 100;
+      double biomassVal = double.Parse(Request.Form["biomassValueName"]) / 100;
+      double geothermalVal = double.Parse(Request.Form["geothermalValueName"]) / 100;
 
       //validate input for calculation
+      if (ValidateEnergySelection(solarVal, windVal, hydroVal, biomassVal, geothermalVal)) {
+        //perform calculation
+        totalCost = CalculateSelection(solarVal, windVal, hydroVal, biomassVal, geothermalVal);
+        return RedirectToAction("ResultPage");
+      }
 
-      //perform caluclation
+      return RedirectToAction("EnergySelection");
+    }
 
-      //send user to result screen
+    public ActionResult ResultPage() {
 
+      double costPerSqFt = totalCost / _homeInfo.AreaSqFt;
+
+      costPerSqFt = Math.Truncate(costPerSqFt * 100) / 100;
+      totalCost = Math.Truncate(totalCost * 100) / 100;
+
+      ViewBag.costPerSqFt = costPerSqFt;
+      ViewBag.totalCost = totalCost;
       return View();
     }
 
@@ -74,6 +88,28 @@ namespace RenewableHome.Controllers {
       if (ModelState.IsValidField("KWperMonth") && homeInfo.KWperMonth <= 0) {
         ModelState.AddModelError("KWperMonth", "The Kilowatt hours of your home must be greater than '0'.");
       }
+    }
+
+    private bool ValidateEnergySelection(double sVal, double wVal, double hVal, double bVal, double gVal) {
+      if ((sVal + wVal + hVal + bVal + gVal) != 1) {
+        //ModelState.AddModelError(string.Empty, "Your current selection doesn't add up to 100%. Be sure to double check your total.");
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+
+    private double CalculateSelection(double sVal, double wVal, double hVal, double bVal, double gVal) {
+      double solDist = ((sVal * _homeInfo.KWperMonth) * _energySourceRepo.GetEnergyCost("Solar")) * 12;
+      double windDist = ((wVal * _homeInfo.KWperMonth) * _energySourceRepo.GetEnergyCost("Wind")) * 12;
+      double hydroDist = ((hVal * _homeInfo.KWperMonth) * _energySourceRepo.GetEnergyCost("Hydropower")) * 12;
+      double bioDist = ((bVal * _homeInfo.KWperMonth) * _energySourceRepo.GetEnergyCost("Biomass")) * 12;
+      double geoDist = ((gVal * _homeInfo.KWperMonth) * _energySourceRepo.GetEnergyCost("Geothermal")) * 12;
+
+      double totalCost = solDist + windDist + hydroDist + bioDist + geoDist;
+
+      return totalCost;
     }
   }
 }

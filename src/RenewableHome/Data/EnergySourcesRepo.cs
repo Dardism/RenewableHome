@@ -23,10 +23,21 @@ namespace RenewableHome.Data {
     /// </summary>
     /// <param name="name">Name of energy source</param>
     /// <returns></returns>
-    public EnergyType GetEnergy(string name) {
+    public EnergyType GetEnergyName(string name) {
       EnergyType energy = EnergyData.EnergyTypes.Where(e => e.Name == name).SingleOrDefault();
 
       return energy;
+    }
+
+    /// <summary>
+    /// Returns the cost per KW hour of a type of energy
+    /// </summary>
+    /// <param name="name">Name of energy source</param>
+    /// <returns></returns>
+    public double GetEnergyCost(string name) {
+      EnergyType energy = EnergyData.EnergyTypes.Where(e => e.Name == name).SingleOrDefault();
+
+      return energy.CostPerKWhour;
     }
   }
 }

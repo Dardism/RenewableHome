@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "ResultPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container pt-2">
+	<h3>Results</h3>
+	<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Total yearly cost</th>
+				<th scope="col">Cost per Square Ft.</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>$@ViewBag.totalCost</td>
+				<td>$@ViewBag.costPerSqFt</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="pad-top">
+		<a href="@Url.Action("Index")" class="btn btn-light btn-lg">
+			<span class="glyphicon glyphicon-remove"></span> Restart
+		</a>
+	</div>
+
+</div>
