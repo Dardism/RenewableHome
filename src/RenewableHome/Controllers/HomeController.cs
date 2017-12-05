@@ -10,7 +10,7 @@ using RenewableHome.Data;
 namespace RenewableHome.Controllers {
   public class HomeController : Controller {
 
-    private static HomeInfo _homeInfo = null;
+    private static HomeInfo _homeInfo = new HomeInfo();
     private static EnergySourcesRepo _energySourceRepo = null;
     private static double totalCost = 0;
     private static List<EnergyType> _energyTypes = null;
@@ -31,8 +31,8 @@ namespace RenewableHome.Controllers {
       ValidateHomeInfo(homeInfo);
 
       if (ModelState.IsValid) {
-        TempData["HomeInfo"] = new HomeInfo { State = homeInfo.State, AreaSqFt = homeInfo.AreaSqFt, KWperMonth = homeInfo.KWperMonth };
-        TempData.Keep();
+        _homeInfo.AreaSqFt = homeInfo.AreaSqFt;
+        _homeInfo.KWperMonth = homeInfo.KWperMonth;
 
         return RedirectToAction("EnergySelection");
       }
@@ -42,9 +42,7 @@ namespace RenewableHome.Controllers {
 
     // GET: EnergySelection
     public ActionResult EnergySelection(){
-
       _energyTypes = _energySourceRepo.GetEnergyTypes();
-      _homeInfo = (HomeInfo)TempData["HomeInfo"];
 
       return View(_energyTypes);
     }

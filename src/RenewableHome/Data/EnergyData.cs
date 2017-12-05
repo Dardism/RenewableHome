@@ -21,10 +21,10 @@ namespace RenewableHome.Data {
     private static void InitData() {
       var energyTypes = new List<EnergyType>() {
         new EnergyType("Solar", "Solar photovoltaic panels are used to convert sunlight into electricity.", .18, ""),
-        new EnergyType("Wind", "Wind powered turbines rotate to power an electric generator", .0345, ""),
-        new EnergyType("Hydropower", "This includes tidal, low dams, free-flow currents, tidal fence, and submerged array", .0875, ""),
-        new EnergyType("Biomass", "Burning bio material such as food or plant waste as a source of fuel.", .098, ""),
-        new EnergyType("Geothermal", "Derived from the natural heat from the earth.", .0555, "")
+        new EnergyType("Wind", "Wind powered turbines rotate to power an electric generator", .03, ""),
+        new EnergyType("Hydropower", "This includes tidal, low dams, free-flow currents, tidal fence, and submerged array", .08, ""),
+        new EnergyType("Biomass", "Burning bio material such as food or plant waste as a source of fuel.", .09, ""),
+        new EnergyType("Geothermal", "Derived from the natural heat from the earth.", .05, "")
       };
 
       EnergyTypes = energyTypes;

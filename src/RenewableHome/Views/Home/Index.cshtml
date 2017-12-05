@@ -22,7 +22,7 @@
 				@Html.TextBoxFor(m => m.AreaSqFt, new { @class = "form-control" })
 				@Html.ValidationMessageFor(m => m.AreaSqFt, "Square feet is required", new { @class = "text-danger" })
 			</div>
-			<p>*Alternatively, you can select your state below to generate the average KW/month used by the homes of that state.<sub>1</sub></p>
+			<p>*Don't know your energy usage? You can select your state below to generate the average KW/month used by the homes of that state.<sub>1</sub></p>
 			<div class="form-group">
 				@Html.LabelFor(m => m.State, new { @class = "control-label text-white" })
 				@Html.DropDownListFor(m => m.State, new List<SelectListItem> {
@@ -78,12 +78,21 @@
 											 new SelectListItem { Value = "863.2" , Text = "Wyoming" },
 											 new SelectListItem { Value = "721.5" , Text = "D.C." }
 										}, "", new { @id = "drpState", @class = "form-control" }) 
-				<!--http://insideenergy.org/2014/05/22/using-energy-how-much-electricity-do-you-use-each-month/-->
 			</div>
 			<br />
 			<button type="submit" class="btn btn-success btn-lg margin-right">
 				<span class="glyphicon glyphicon-save"></span> Submit
 			</button>
+			<div class="pt-5">
+				<p>Reference</p>
+				<table class="table table-dark">
+					<thead>
+						<tr>
+							<th scope="col"><a href="http://insideenergy.org/2014/05/22/using-energy-how-much-electricity-do-you-use-each-month" class="text-white">1. http://insideenergy.org/2014/05/22/ </a></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
 		</div>
 	</div>
 }
