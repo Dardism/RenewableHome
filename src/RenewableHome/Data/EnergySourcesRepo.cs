@@ -11,7 +11,7 @@ namespace RenewableHome.Data {
   public class EnergySourcesRepo {
 
     /// <summary>
-    /// 
+    /// Gets the energy sources from the data class
     /// </summary>
     /// <returns>The list of Energy sources in the data class</returns>
     public List<EnergyType> GetEnergyTypes() {

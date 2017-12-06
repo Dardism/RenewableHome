@@ -7,11 +7,12 @@
 }
 
 <!--homeInfo form-->
-<div class="container pt-2">
+<div class="container">
 @using (Html.BeginForm()) {
 	@Html.ValidationSummary(null, new { @class = "alert alert-danger"})
 	<div class="row justify-content-md-center">
 		<div class="col-lg-5 col-md-6 col-sm-7">
+			<p>Enter information about your home</p>
 			<div class="form-group">
 				@Html.LabelFor(m => m.KWperMonth, "Average Kilowatt-Hours Used Per Month*", new { @class = "control-label text-white" })
 				@Html.TextBoxFor(m => m.KWperMonth, new { @id = "txtKWperMonth", @class = "form-control" })
@@ -84,7 +85,7 @@
 				<span class="glyphicon glyphicon-save"></span> Submit
 			</button>
 			<div class="pt-5">
-				<p>Reference</p>
+				<p>Reference for state data:</p>
 				<table class="table table-dark">
 					<thead>
 						<tr>
